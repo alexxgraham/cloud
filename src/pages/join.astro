@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Account.astro';
+---
+
+<Layout title="Join">
+    <form action="post" class="flex flex-col gap-2 w-72 self-center">
+        <span class="flex flex-col">
+            <label for="ag/cloud-display-name" class="text-xs mb-0.5">Display Name</label>
+            <input name="ag/cloud-display-name" id="ag/cloud-display-name" type="text" class="mx-1 bg-transparent outline-accent border rounded-md border-zinc-500 px-3 py-0.5" >
+        </span>
+        <span class="flex flex-col">
+            <label for="ag/cloud-user-name" class="text-xs mb-0.5">Username</label>
+            <input name="ag/cloud-user-name" id="ag/cloud-user-name" type="text" class="mx-1 bg-transparent outline-accent border rounded-md border-zinc-500 px-3 py-0.5" >
+        </span>
+        <p class="text-xs flex gap-1.5">Already made an account? <button type="button" class="text-link hover:underline" onclick="window.location.href='/login'">Login here</button></p>
+        <section class="flex items-center gap-3 self-center mt-4">
+            <button type="button" onclick="window.history.back()" class="bg-zinc-300 dark:bg-zinc-600 rounded-md text-sm h-8 w-fit px-4">Go Back</button>
+            <button type="submit" class="bg-accent rounded-md text-sm h-8 w-fit px-4 text-white">Continue</button>
+        </section>
+    </form>
+</Layout>

@@ -1,0 +1,10 @@
+---
+const { label } = Astro.props;
+---
+
+<span class="grid gap-1">
+    <label class="text-sm mb-0.5 text-accent shrink-0">{label}</label>
+    <span class="flex flex-col gap-1 ml-1.5">
+        <slot />
+    </span>
+</span>

@@ -1,0 +1,52 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import GlobalNav from './modals/Global.astro';
+import { HEADER_TITLE } from '../consts';
+
+const linkClass = `
+	px-1
+	bg-zinc-300
+	dark:bg-zinc-700
+	text-black
+	dark:text-white
+	visited:text-black
+	dark:visited:text-white
+	visited:hover:text-black
+	dark:visited:hover:text-white
+	rounded-md
+`;
+
+---
+
+<header class="flex items-center h-16">
+	<nav class="font-sans dark:bg-zinc-800 w-full">
+		<h6><HeaderLink href="/">{HEADER_TITLE}</HeaderLink></h6>
+		<div class="flex gap-2 text-xs">
+			<HeaderLink class={linkClass} href="/projects">Projects</HeaderLink>
+			<HeaderLink class={linkClass} href="/resume/01-01-2025">Resume</HeaderLink>
+		</div>
+	</nav>
+	<GlobalNav />
+</header>
+<style>
+	header {
+		margin: 0;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		padding-block: 0.5em;
+		margin: 0;
+		font-size: 1em;
+	}
+	
+	nav {
+		display: flex;
+		padding: 0 1em;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 0.75em 0.5em;
+		text-decoration: none;
+	}
+</style>

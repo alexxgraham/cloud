@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Resume.astro';
+import DefaultLayout from '../../components/resume/_Default.astro';
+import XLLayout from '../../components/resume/_ExtraLarge.astro';
+---
+
+<Layout
+	title="Alex Graham's Resume"
+	description="Various formats are available to download below"
+	startDate={new Date('1 1 25')}
+	heroImage="/projects-placeholder-about.jpg"
+>
+	<DefaultLayout />
+	<XLLayout />
+</Layout>

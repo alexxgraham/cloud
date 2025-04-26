@@ -1,0 +1,12 @@
+---
+import Link from './_Link.astro';
+const { href, title, subtitle } = Astro.props;
+---
+
+<span class="flex gap-x-2 flex-col md:flex-row">
+    <div class="flex gap-x-1 items-center">
+        <Link href={href} title={title} />
+    </div>
+    <p class="hidden md:block">|</p>
+    <p class="italic text-sm md:text-base">{subtitle}</p>
+</span>

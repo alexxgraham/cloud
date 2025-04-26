@@ -1,0 +1,14 @@
+---
+const today = new Date();
+import RightsReserved from './RightsReserved.astro';
+---
+
+<footer class="text-zinc-400 text-sm z-0 dark:bg-zinc-800">
+	&copy; {today.getFullYear()} Destin Graham. <RightsReserved />
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 4em 1em;
+		text-align: center;
+	}
+</style>

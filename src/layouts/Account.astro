@@ -1,0 +1,42 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description="Personal Cloud" />
+		<style>
+			.prose {
+				max-width: calc(100% - 2em);
+				margin: auto;
+			}
+			.title {
+				padding-top: 1em;
+				text-align: center;
+				line-height: 1;
+			}
+			.date {
+				margin-bottom: 0.5em;
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+		</style>
+	</head>
+	<body class="bg-zinc-200 dark:bg-zinc-800">
+		<Header />
+		<main class="bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-100 max-w-full m-0 w-full p-0 h-[calc(100vh-64px)]">
+			<article class="h-full grid place-content-center">
+				<div class="prose h-full font-sans flex flex-col md:border border-zinc-200 dark:border-zinc-800 rounded-xl md:py-6 md:px-10 lg:py-10 lg:px-16">
+					<div class="title">
+						<h4>{title}</h4>
+					</div>
+					<slot />
+				</div>
+			</article>
+		</main>
+	</body>
+</html>

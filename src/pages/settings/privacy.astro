@@ -1,0 +1,23 @@
+---
+import Checkbox from '../../components/settings/form/Checkbox.astro';
+import ButtonToPage from '../../components/settings/form/ButtonToPage.astro';
+import Input from '../../components/settings/form/Input.astro';
+import Layout from '../../layouts/settings/Main.astro';
+import Form from '../../layouts/settings/Form.astro';
+import SelectionGroup from '../../components/settings/form/SelectionGroup.astro';
+---
+
+<Layout>
+    <section class="border rounded-lg p-3">
+        <h4 class="m-0">Privacy</h4>
+        <Form>
+            <SelectionGroup label="Profile">
+                <Checkbox checked id="profile-include" name="ag/cloud.profile-include">Include in Search</Checkbox>
+                <Checkbox checked id="profile-include-results" name="ag/cloud.profile-include-results">Include Results in Search</Checkbox>
+            </SelectionGroup>
+            <SelectionGroup label="Cookies">
+                <Checkbox checked id="cookie-tz" name="ag/cloud.cookie-tz">Timezone</Checkbox>
+            </SelectionGroup>
+        </Form>
+    </section>
+</Layout>

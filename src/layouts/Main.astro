@@ -1,0 +1,48 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const links = [
+	{ "name": 'Introduction', "href": '/intro/' },
+	{ "name": 'Blog', "href": 'https://destingraham.blog/' },
+	{ "name": 'Contact', "href": '/contact/' },
+];
+
+let landings = (await getCollection('landings')).sort((a, b) => a.data.href.localeCompare(b.data.href));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="font-newsreader bg-zinc-200 dark:bg-zinc-800">
+		<Header />
+		<main class="flex bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-100 w-full m-0 max-w-full md:py-[3em] lg:py-[4em]">
+			<div class="grid w-full md:pl-12 lg:pl-16">
+				<h4>Quick Links</h4>
+				<ul class="flex flex-col pl-8">
+					{links.map((link) => (
+						<li class="list-item list-disc"><a class="text-link hover:underline hover:text-link-dark" href={link.href}>{link.name}</a></li>
+					))}
+				</ul>
+			</div>
+		</main>
+        <slot />
+		<main id="cloud" class="flex bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-100 w-full m-0 max-w-full md:py-[3em] lg:py-[4em]">
+			<div class="grid w-full md:pl-12 lg:pl-16">
+				<h5>Cloud Contents</h5>
+				<ul class="flex flex-col pl-8 text-base">
+					{landings.slice(0, 20).map((page) => (
+						<li class="list-item list-disc"><a class="text-link hover:underline hover:text-link-dark" href={page.data.href}>{page.data.title}</a></li>
+					))}
+				</ul>
+				<button onclick="window.location.href='/cloud-contents/'" class="text-gray-400 hover:underline hover:text-gray-500 place-self-start text-base mt-2">View More</button>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

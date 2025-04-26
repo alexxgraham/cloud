@@ -1,0 +1,16 @@
+---
+import PreviewIcon from '../../assets/PreviewIcon.svg';
+import Link from './_Link.astro';
+const { preview, href, title, subtitle } = Astro.props;
+---
+
+<span class="flex gap-x-2 flex-col md:flex-row">
+    <div class="flex gap-x-1 items-center">
+        <button onclick=`window.location.href='/resume/preview/${preview}'`>
+            <PreviewIcon />
+        </button>
+        <Link href={href} title={title} />
+    </div>
+    <p class="hidden md:block">|</p>
+    <p class="italic text-sm md:text-base">{subtitle}</p>
+</span>

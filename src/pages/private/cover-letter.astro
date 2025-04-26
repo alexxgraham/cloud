@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Resume.astro';
+---
+
+<Layout
+	title="Cover Letter Template"
+	description="Generate a cover letter for a recipient"
+	startDate={new Date('1 1 25')}
+	heroImage="/projects-placeholder-about.jpg"
+>
+    <div class="flex flex-col text-sm pb-[1em] md:pb-[2em]">
+        <h6 class="text-sm flex gap-1">
+            Dear <input placeholder="Recipient" value="Recipient" class="text-accent text-start text-sm bg-transparent outline-none flex w-[100px]" />
+        </h6>
+        <section class="min-h-[33%] h-full max-h-[33%] overflow-y-scroll flex flex-col justify-evenly">
+            <p class="pt-6 max-w-[30rem]">
+                <button id="body1-button" class="text-accent hover:underline text-start first-letter:pl-4">...Body 1</button>
+            </p>
+            <p class="pt-6 max-w-[30rem]">
+                <button id="body2-button" class="text-accent hover:underline text-start first-letter:pl-4">...Body 2</button>
+            </p>
+            <p class="pt-6 max-w-[30rem]">
+                <button id="body3-button" class="text-accent hover:underline text-start first-letter:pl-4">...Body 3</button>
+            </p>
+            <p class="pt-6 max-w-[30rem]">
+                <button id="body4-button" class="text-accent hover:underline text-start first-letter:pl-4">...Body 4</button>
+            </p>
+        </section>
+        <section class="flex flex-col pt-6">
+            <p><button id="exit-button" class="text-accent hover:underline text-start">Exit</button>,</p>
+            <p>Alex Graham</p>
+        </section>
+    </div>
+</Layout>
+
+<script>
+    const body1s = [
+        `Test Lorem Ut aute ullamco do aute pariatur adipisicing deserunt anim elit veniam labore.
+        Voluptate minim amet veniam duis aute eu culpa voluptate incididunt irure cillum ullamco sit.
+        Incididunt aliquip nisi elit ex magna.
+        Labore qui quis sit nulla ut.`,
+    ];
+    const body2s = [
+        `Test Lorem Ut aute ullamco do aute pariatur adipisicing deserunt anim elit veniam labore.
+        Ea consectetur sint deserunt nostrud esse ad aliquip voluptate aliquip Lorem dolore.
+        Fugiat cillum ea enim est.
+        Do consequat consequat voluptate et fugiat veniam elit quis.`,
+    ];
+    const body3s = [
+        `Test Lorem Ut aute ullamco do aute pariatur adipisicing deserunt anim elit veniam labore.
+        Tempor reprehenderit mollit sint non minim consectetur adipisicing quis minim laboris nostrud sunt.
+        Dolor aute laboris nisi voluptate incididunt sint anim ex eu est deserunt Lorem voluptate amet.
+        Nisi consectetur cupidatat deserunt aliquip commodo.`,
+    ];
+    const body4s = [
+        `I can quickly assess a customer's problem and provide the necessary assistance they require to resolve their issue. I enjoy being a team player, and helping my
+        peers to accomplish their goals as well as accomplishing my own. Also, I'm able to provide thorough explanations of how I resolved a particular issue, ensuring my
+        peers and/or customers can problem solve through the issue on their own if it reoccurs. Please feel free to contact me any time to further discuss this. 
+        I look forward to meeting with you and hopefully joining your team.`,
+    ];
+    const exits = [
+        "Sincerely",
+        "Thank you for your consideration",
+        "Best Regards",
+        "Respectfully",
+    ];
+    
+    let currentBody1Index = 0;
+    document.getElementById('body1-button')?.addEventListener('click', () => {
+        const body1Button = document.getElementById('body1-button');
+        if (body1Button) {
+            body1Button.textContent = body1s[currentBody1Index];
+            currentBody1Index = (currentBody1Index + 1) % body1s.length;
+        }
+    });
+    let currentBody2Index = 0;
+    document.getElementById('body2-button')?.addEventListener('click', () => {
+        const body2Button = document.getElementById('body2-button');
+        if (body2Button) {
+            body2Button.textContent = body2s[currentBody2Index];
+            currentBody2Index = (currentBody2Index + 1) % body2s.length;
+        }
+    });
+    let currentBody3Index = 0;
+    document.getElementById('body3-button')?.addEventListener('click', () => {
+        const body3Button = document.getElementById('body3-button');
+        if (body3Button) {
+            body3Button.textContent = body3s[currentBody3Index];
+            currentBody3Index = (currentBody3Index + 1) % body3s.length;
+        }
+    });
+    let currentBody4Index = 0;
+    document.getElementById('body4-button')?.addEventListener('click', () => {
+        const body4Button = document.getElementById('body4-button');
+        if (body4Button) {
+            body4Button.textContent = body4s[currentBody4Index];
+            currentBody4Index = (currentBody4Index + 1) % body4s.length;
+        }
+    });
+
+    let currentExitIndex = 0;
+    document.getElementById('exit-button')?.addEventListener('click', () => {
+        const exitButton = document.getElementById('exit-button');
+        if (exitButton) {
+            exitButton.textContent = exits[currentExitIndex];
+            currentExitIndex = (currentExitIndex + 1) % exits.length;
+        }
+    });
+</script>

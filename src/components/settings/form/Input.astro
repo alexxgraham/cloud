@@ -1,0 +1,13 @@
+---
+const { label, value } = Astro.props;
+---
+
+<span class="gap-1 flex items-center justify-between w-full">
+    <label class="text-sm mb-0.5 text-accent">{label}</label>
+    <input
+        spellcheck="false"
+        type="text"
+        class="mx-1 bg-transparent outline-accent border rounded-md border-zinc-500 px-3 py-0.5 max-w-[50%] text-sm"
+        value={value}
+    >
+</span>

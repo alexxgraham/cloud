@@ -1,0 +1,9 @@
+---
+import Bullet from './_Bullet.astro';
+import Link from './_Link.astro';
+const { href, title } = Astro.props;
+---
+
+<Bullet>
+    <Link href={href} title={title} />
+</Bullet>

@@ -1,0 +1,17 @@
+---
+import Bullet from './_Bullet.astro';
+import ProjectSpan from './_Span.astro';
+const { href, title, subtitle, date, bullets } = Astro.props;
+---
+
+<div class="text-base">
+    <ProjectSpan href={href} title={title} subtitle={subtitle} />
+    <p class="italic text-xs">{date}</p>
+    <ul class="text-xs pl-4 py-2">
+        {bullets.map((bullet: string) => (
+            <Bullet>
+                <p>{bullet}</p>
+            </Bullet>
+        ))}
+    </ul>
+</div>

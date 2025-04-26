@@ -1,0 +1,24 @@
+---
+import SelectionGroup from '../../components/settings/form/SelectionGroup.astro';
+import ButtonToPage from '../../components/settings/form/ButtonToPage.astro';
+import Checkbox from '../../components/settings/form/Checkbox.astro';
+import Input from '../../components/settings/form/Input.astro';
+import Layout from '../../layouts/settings/Main.astro';
+import Form from '../../layouts/settings/Form.astro';
+---
+
+<Layout>
+    <section class="border rounded-lg p-3">
+        <h4 class="m-0">Appearance</h4>
+        <Form>
+            <Input label="Date Format" value="mm/dd/yy" />
+            <Input label="Time Format" value="hh:mm:ss" />
+            <ButtonToPage label="Theme" value="Modern" />
+            <SelectionGroup label="Mode">
+                <Checkbox id="light" name="mode">Light</Checkbox>
+                <Checkbox id="auto" name="mode">Auto</Checkbox>
+                <Checkbox id="dark" name="mode">Dark</Checkbox>
+            </SelectionGroup>
+        </Form>
+    </section>
+</Layout>

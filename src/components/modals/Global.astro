@@ -1,0 +1,75 @@
+---
+import ContainerButton from './ContainerButton.astro';
+import ThemeButton from './ThemeButton.astro';
+
+import BugIcon from '../assets/BugIcon.svg';
+import GearIcon from '../assets/GearIcon.svg';
+import GitHubIcon from '../assets/GitHubIcon.svg';
+import PCloudIcon from '../assets/PCloudIcon.svg';
+import ProfileIcon from '../assets/ProfileIcon.svg';
+
+const user = false;
+---
+
+<nav>
+    <div class="pointer-events-none flex font-victor">
+        <div id="global" class="z-50 max-w-72 w-[calc(100%-3rem)] bottom-7 right-7 aspect-[8/9] text-black dark:text-white bg-accent dark:bg-accent-dark hidden fixed p-4 rounded-lg pointer-events-auto opacity-95 border-accent border">
+            <section class="flex flex-col justify-between h-full pb-7">
+                <span class="h-10 w-full bg-accent-light dark:bg-accent rounded-lg opacity-95">
+                    <input placeholder="Search" class="font-sans bg-transparent text-xs text-black dark:text-white p-3 w-full border-none placeholder:text-black dark:placeholder:text-white placeholder:font-light outline-none"/>
+                </span>
+                {user ? (
+                    <span class="h-10 w-full bg-accent-light dark:bg-accent rounded-md opacity-95 text-xs flex justify-between items-center px-6 font-bold">
+                        <p>Username</p>
+                        <img class="shrink-0 rounded-full" height={22} width={22} src="/default_pfp.png" alt="Profile Photo">
+                    </span>
+                ):(
+                    <div class="flex items-center justify-between gap-2 font-bold">
+                        <span class="h-10 w-full bg-accent-light dark:bg-accent rounded-md opacity-95 text-xs grid place-content-center px-6 cursor-pointer">
+                            <a href="/login/">Login</a>
+                        </span>
+                        <span class="h-10 w-full bg-accent-light dark:bg-accent rounded-md opacity-95 text-xs grid place-content-center px-6 cursor-pointer">
+                            <a href="/join/">Join</a>
+                        </span>
+                    </div>
+                )}
+                <span class="text-sm flex flex-col">
+                    <a class="flex hover:underline items-center gap-3" href="/profile/">
+                        <ProfileIcon />
+                        Profile
+                    </a>
+                    <a class="flex hover:underline items-center gap-3" href="/settings/">
+                        <GearIcon />
+                        Settings
+                    </a>
+                    <a class="flex hover:underline items-center gap-3" href="/issues/">
+                        <BugIcon />
+                        Report Issues
+                    </a>
+                </span>
+                <p class="self-center text-xs cursor-default hover:scale-105 group">Hello <span class="animate-wave text-sm">👋</span></p>
+                <span class="h-10 pb-4 grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-2">
+                    <a href="/github/" class="w-full py-1.5 bg-accent-light dark:bg-accent rounded-md hidden md:grid place-content-center">
+                        <GitHubIcon />
+                    </a>
+                    <a href="/favorites/" class="w-full py-1.5 bg-accent-light dark:bg-accent rounded-md grid place-content-center group">
+                        <svg class="md:group-hover:hidden" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="currentColor"><path d="m352-293 128-76 129 76-34-144 111-95-147-13-59-137-59 137-147 13 112 95-34 144ZM243-144l63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Zm237-333Z"/></svg>
+                        <svg class="hidden md:group-hover:block" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="currentColor"><path d="m243-144 63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Z"/></svg>
+                    </a>
+                    <button id="theme-toggle" class="w-full py-1.5 bg-accent-light dark:bg-accent rounded-md grid place-content-center">
+                        <ThemeButton />
+                    </button>
+                    <a href="/pcloud/" class="w-full py-1.5 bg-accent-light dark:bg-accent rounded-md grid place-content-center">
+                        <PCloudIcon />
+                    </a>
+                </span>
+            </section>
+        </div>
+    </div>
+    <ContainerButton />
+</nav>
+<style>
+    #global a {
+        color: currentColor !important;
+    }
+</style>

@@ -1,0 +1,32 @@
+---
+
+type Props = {
+    href: string;
+    class?: string;
+    [key: string]: any;
+};
+
+const { href, class: className, ...props } = Astro.props;
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\//, '');
+const normalizedHref = href.replace(/^\//, '');
+const isActive = pathname === normalizedHref;
+---
+
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+	<slot />
+</a>
+<style>
+	a {
+		display: inline-block;
+		text-decoration: none;
+	}
+    a:hover {
+		text-decoration: underline;
+    }
+	a:visited {
+		color: inherit;
+	}
+	a.active {
+		border-left: 3px solid var(--accent);
+	}
+</style>

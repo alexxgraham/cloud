@@ -1,0 +1,28 @@
+---
+import CertificationSection from './CertificationSection.astro'
+import ContactSection from './ContactSection.astro'
+import DownloadsSection from './DownloadsSection.astro'
+import EducationSection from './EducationSection.astro'
+import ProfileSection from './ProfileSection.astro'
+import ProjectsSection from './ProjectsSection.astro'
+import SkillsSection from './SkillsSection.astro'
+---
+
+<div class="hidden xl:grid grid-cols-[1.2fr_.75fr]">
+    <section class="flex flex-col">
+        <EducationSection />
+        <hr class="border-zinc-500">
+        <CertificationSection />
+        <hr class="border-zinc-500">
+        <ProjectsSection />
+    </section>
+    <section class="flex flex-col pl-4 ml-4 border-l border-zinc-500 h-fit">
+        <ContactSection />
+        <hr class="border-zinc-500">
+        <ProfileSection />
+        <hr class="border-zinc-500">
+        <SkillsSection />
+        <hr class="border-zinc-500">
+        <DownloadsSection />
+    </section>
+</div>

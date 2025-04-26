@@ -1,0 +1,30 @@
+---
+import Link from './items/_Link.astro';
+
+import Envelope from '../assets/social/Envelope.svg';
+import GitHub from '../assets/social/GitHub.svg';
+import LinkedIn from '../assets/social/LinkedIn.svg';
+import Phone from '../assets/social/Phone.svg';
+---
+
+<section id="contact" class="flex flex-col py-[1em] md:py-[2em] md:pb-[2em] md:px-4 xl:pt-0 xl:items-center">
+    <h5>Contact</h5>
+    <div class="flex flex-col gap-1 text-base md:grid grid-cols-2 pl-4 w-full xl:flex xl:flex-col xl:items-end">
+        <span class="flex items-center gap-2 xl:flex-row-reverse">
+            <Envelope />
+            <Link title="alex.business@aode.space" href="mailto:alex.business@aode.space" />
+        </span>
+        <span class="flex items-center gap-2 xl:flex-row-reverse">
+            <Phone />
+            <Link title="(916) 616-4234" href="tel:(916) 616-4234" />
+        </span>
+        <span class="flex items-center gap-2 xl:flex-row-reverse">
+            <LinkedIn />
+            <Link title="alexx-graham-dev" href="https://linkedin.com/in/alexx-graham-dev" />
+        </span>
+        <span class="flex items-center gap-2 xl:flex-row-reverse">
+            <GitHub />
+            <Link title="alexxgraham" href="https://github.com/alexxgraham" />
+        </span>
+    </div>
+</section>

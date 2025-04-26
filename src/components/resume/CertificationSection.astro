@@ -1,0 +1,43 @@
+---
+import CertificationItem from './items/Certification.astro'
+---
+
+<section id="certifications" class="flex flex-col py-[1em] md:py-[2em] md:px-4">
+    <h5>Certifications</h5>
+    <CertificationItem 
+        preview="emergency-medical-technician"
+        href="https://www.sierracollege.edu/academics/interest-areas/public-safety-health-wellness/health-sciences/"
+        title="Emergency Medical Technician"
+        subtitle="Sierra College"
+        date="August 2021"
+        location="Roseville CA"
+        bullets={["Received training in BLS, CPR/AED, Shock Management, Obstructed Airway Management, Emergency Disaster Response, Triage, Childbirth, and Drug Pharmacology"]}
+    />
+    <CertificationItem 
+        preview="udemy-python-bootcamp"
+        href="https://www.udemy.com/course/complete-python-bootcamp/"
+        title="Python Bootcamp"
+        subtitle="Udemy"
+        date="August 2021"
+        location="Virtual Learning"
+        bullets={[
+            "Command Line Basics",
+            "Python Installation & Execution",
+            "Strings, Lists, Dicts, Tuples, Sets & Number Data Types",
+            "Print Formatting",
+            "Functions",
+            "Scope",
+            "Arguments/Keyword Arguments",
+            "Built-in Functions",
+            "Debugging & Error Handling",
+            "Modules",
+            "External Modules",
+            "Object Oriented Programming",
+            "Inheritance",
+            "Polymorphism",
+            "File I/O",
+            "Advanced Methods",
+            "Unit Tests"
+        ]}
+    />
+</section>

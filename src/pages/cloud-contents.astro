@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { getCollection } from 'astro:content';
+
+let landings = (await getCollection('landings')).sort((a, b) => a.data.href.localeCompare(b.data.href));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				min-height: calc(100dvh - 4em);
+			}
+		</style>
+	</head>
+	<body class="bg-zinc-200 dark:bg-zinc-800">
+		<Header />
+		<main class="flex flex-col bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-100 w-full m-0 max-w-full md:pl-12 lg:pl-16 md:py-[3em] lg:py-[4em]">
+			<h5>Cloud Contents</h5>
+			<ul class="flex flex-col pl-8 text-base">
+				{landings.map((page) => (
+					<li class="list-item list-disc"><a class="text-link hover:underline hover:text-link-dark" href={page.data.href}>{page.data.title}</a></li>
+				))}
+			</ul>
+			<button onclick="window.location.href='/#cloud'" class="text-gray-400 hover:underline hover:text-gray-500 self-start text-base mt-2">Show Less</button>
+		</main>
+		<Footer />
+	</body>
+</html>

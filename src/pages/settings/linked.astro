@@ -1,0 +1,19 @@
+---
+import Checkbox from '../../components/settings/form/Checkbox.astro';
+import ButtonToPage from '../../components/settings/form/ButtonToPage.astro';
+import Input from '../../components/settings/form/Input.astro';
+import Layout from '../../layouts/settings/Main.astro';
+import Form from '../../layouts/settings/Form.astro';
+---
+
+<Layout>
+    <section class="border rounded-lg p-3">
+        <h4 class="m-0">Linked Accounts</h4>
+        <Form>
+            <ButtonToPage label="GitHub" value="Link" />
+            <ButtonToPage label="Apple" value="Link" />
+            <ButtonToPage label="Microsoft" value="Link" />
+            <ButtonToPage label="Google" value="Link" />
+        </Form>
+    </section>
+</Layout>

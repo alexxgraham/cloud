@@ -1,0 +1,17 @@
+---
+import Checkbox from '../../components/settings/form/Checkbox.astro';
+import ButtonToPage from '../../components/settings/form/ButtonToPage.astro';
+import Input from '../../components/settings/form/Input.astro';
+import Layout from '../../layouts/settings/Main.astro';
+import Form from '../../layouts/settings/Form.astro';
+---
+
+<Layout>
+    <section class="border rounded-lg p-3">
+        <h4 class="m-0">Billing</h4>
+        <Form>
+            <ButtonToPage label="Subscription Plan" value="Free" />
+            <Input label="Payment Method" value="None" />
+        </Form>
+    </section>
+</Layout>

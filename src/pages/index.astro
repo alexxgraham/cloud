@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import Layout from '../layouts/Main.astro';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+).slice(0, 3);
+
+const linkClass = `
+	flex
+	flex-col
+	items-center
+	gap-3
+	group/projects
+	text-black
+	dark:text-white
+	visited:text-black
+	dark:visited:text-white
+	visited:hover:text-black
+	dark:visited:hover:text-white
+`
+---
+
+
+<Layout>
+	<div class="grid gap-6 dark:text-zinc-100 p-8 md:py-12 lg:py-16">
+		<h5 class="place-self-center">Recent Projects</h5>
+		<ul class="flex flex-wrap justify-center gap-4 w-full font-sans">
+			{projects.map((project) => (
+				<li class="text-sm list-none">
+					<a href={`/projects/${project.id}/`} class={linkClass}>
+						<img width={720} height={360} src={project.data.heroImage} alt="" class="w-full shrink-0 max-w-48 opacity-90 group-hover/projects:opacity-100" />
+						<span class="flex flex-col items-center text-center">
+							<p class="group-hover/projects:underline">{project.data.title}</p>
+							{project.data.updatedDate ? (
+								<p class="text-xs text-gray-400">Changed: <FormattedDate date={project.data.updatedDate} /></p>
+							) : (
+								<p class="text-xs text-gray-400">Created: <FormattedDate date={project.data.startDate} /></p>
+							)}
+						</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</Layout>

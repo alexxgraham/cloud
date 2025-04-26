@@ -1,0 +1,47 @@
+---
+import Checkbox from '../../components/settings/form/Checkbox.astro';
+import ButtonToPage from '../../components/settings/form/ButtonToPage.astro';
+import Input from '../../components/settings/form/Input.astro';
+import Layout from '../../layouts/settings/Main.astro';
+import SelectionGroup from '../../components/settings/form/SelectionGroup.astro';
+import Form from '../../layouts/settings/Form.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+let landings = (await getCollection('landings')).sort((a, b) => a.data.href.localeCompare(b.data.href));
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+---
+
+<Layout>
+    <section class="border rounded-lg p-3">
+        <h4 class="m-0">Features</h4>
+        <Form>
+            <SelectionGroup label="Site">
+                <Checkbox checked id="site-project-info" name="ag/cloud.project-info">Project Info</Checkbox>
+                <Checkbox checked id="site-project-demos" name="ag/cloud.project-demos">Project Demos</Checkbox>
+                <Checkbox checked id="site-project-res" name="ag/cloud.project-res">Project Responses</Checkbox>
+                <Checkbox checked id="site-streaming" name="ag/cloud.site-streaming">Streaming</Checkbox>
+                <Checkbox checked id="site-localization" name="ag/cloud.site-localization">Localization</Checkbox>
+                <span class="border-t pt-1 mt-1" />
+                <Checkbox checked id="site-theme" name="ag/cloud.site-theme">Theme</Checkbox>
+                <Checkbox checked id="site-linked" name="ag/cloud.site-linked">Linked Accounts</Checkbox>
+            </SelectionGroup>
+            <SelectionGroup label="Personal">
+                <Checkbox checked id="p-projects" name="ag/cloud.p-feature-projects">Projects</Checkbox>
+                <Checkbox checked id="p-resume" name="ag/cloud.p-feature-resume">Resume</Checkbox>
+                <Checkbox checked id="p-contact" name="ag/cloud.p-feature-contact">Contact</Checkbox>
+            </SelectionGroup>
+            <SelectionGroup label="Projects">
+                {projects.map((project: CollectionEntry<'projects'>) => (
+                    <Checkbox checked id={project.id} name={`ag/cloud.project-${project.id}`}>{project.data.title}</Checkbox>
+                ))}
+            </SelectionGroup>
+            <SelectionGroup label="Contents">
+                {landings.map((page: CollectionEntry<'landings'>) => (
+                    <Checkbox checked id={page.id} name={`ag/cloud.feature-${page.id}`}>{page.data.title}</Checkbox>
+                ))}
+            </SelectionGroup>
+        </Form>
+    </section>
+</Layout>

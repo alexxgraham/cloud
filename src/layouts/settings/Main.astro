@@ -1,0 +1,48 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Link from '../../components/settings/Link.astro';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title="Settings" description="Cloud Settings" />
+		<style>
+			.title {
+				line-height: 1;
+			}
+		</style>
+	</head>
+	<body class="bg-zinc-200 dark:bg-zinc-800">
+		<Header />
+		<div class="bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-100 p-0 min-h-[calc(100dvh-4em)]">
+            <div class="font-sans flex flex-col max-w-full m-0 w-full p-4 md:px-8 lg:px-12">
+                <div class="title">
+                    <h5>Settings</h5>
+                </div>
+                <div class="text-sm flex flex-col gap-6 md:grid panels md:py-2 lg:py-6">
+                    <section>
+                        <ul class="flex flex-col gap-1">
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/">Account</Link></li>
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/appearance">Appearance</Link></li>
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/billing">Billing</Link></li>
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/features">Features</Link></li>
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/linked">Linked Accounts</Link></li>
+                            <span class="h-2" />
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/content">Content</Link></li>
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/privacy">Privacy</Link></li>
+                            <span class="h-2" />
+                            <li><Link class="pl-3 border-l-[3px] border-transparent" href="/settings/"></Link></li>
+                        </ul>
+                    </section>
+                    <slot />
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
+<style>
+    .panels {
+        grid-template-columns: .35fr 1.65fr;
+    }
+</style>

@@ -1,0 +1,17 @@
+---
+import Bullet from './_Bullet.astro';
+import CertificationSpan from './_Certificate.astro';
+const { preview, href, title, subtitle, date, location, bullets } = Astro.props;
+---
+
+<div class="text-base">
+    <CertificationSpan preview={preview} href={href} title={title} subtitle={subtitle} />
+    <p class="italic text-xs">{date}, {location}</p>
+    <ul class="text-xs pl-4 py-2">
+        {bullets.map((bullet: string) => (
+            <Bullet>
+                <p>{bullet}</p>
+            </Bullet>
+        ))}
+    </ul>
+</div>

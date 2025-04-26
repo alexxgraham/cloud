@@ -1,0 +1,97 @@
+---
+import ProjectItem from './items/Project.astro'
+
+const projects = [
+	{
+		"href": "/projects/coffeeshop/",
+		"title": "Coffee Shop",
+		"subtitle": "CSS / HTML",
+		"date": "September 2022",
+		"bullets": [
+			"Constructed my first HTML & CSS to create a template for an online menu site",
+		]
+	},
+	{
+		"href": "/projects/travelsite/",
+		"title": "Travel Site",
+		"subtitle": "SCSS",
+		"date": "October 2022",
+		"bullets": [
+			"Created a travel destinations idea site with SCSS"
+		]
+	},
+	{
+		"href": "/projects/bandsite/",
+		"title": "BandSite",
+		"subtitle": "JavaScript",
+		"date": "October 2022",
+		"bullets": [
+			"Utilized JavaScript & DOM Manipulation to build a band's information"
+		]
+	},
+	{
+		"href": "/projects/brainflix/",
+		"title": "BrainFlix",
+		"subtitle": "Node / Express",
+		"date": "November 2022",
+		"bullets": [
+			"Worked with Node & Express to initialize a Full-Stack video player template application"
+		]
+	},
+	{
+		"href": "/projects/instock/",
+		"title": "InStock",
+		"subtitle": "Node / React",
+		"date": "November 2022",
+		"bullets": [
+			"Worked with React to create a Full-Stack warehouse inventory application"
+		]
+	},
+	{
+		"href": "/projects/google-hackathon/",
+		"title": "Google Accessibility",
+		"subtitle": "Hackathon",
+		"date": "December 2022",
+		"bullets": [
+			"24-Hour Hackathon styled industry project with the goal to create a technology to make a Google service more accessible"
+		]
+	},
+	{
+		"href": "/projects/medicine-cabinet/",
+		"title": "Medicine Cabinet",
+		"subtitle": "Remix",
+		"date": "December 2022",
+		"bullets": [
+			"Full-Stack final at BrainStation with the purpose to enable it's users to manage their prescriptions"
+		]
+	},
+	{
+		"href": "/projects/antson/",
+		"title": "ANTson",
+		"subtitle": "Python",
+		"date": "March 2023",
+		"bullets": [
+			"TypeSafe",
+            "Object-Notation",
+            "File Format",
+            "VSCode Extension",
+		]
+	},
+	{
+		"href": "/projects/fossil/",
+		"title": "Fossil",
+		"subtitle": "Python",
+		"date": "September 2024",
+		"bullets": [
+			"Project Configuration Management",
+		]
+	},
+]
+---
+
+<section id="projects" class="flex flex-col py-[1em] md:py-[2em] md:px-4">
+    <h5>Projects</h5>
+    {projects.map((item) => (
+        <ProjectItem href={item.href} title={item.title} subtitle={item.subtitle} date={item.date} bullets={item.bullets} />
+    ))}
+</section>
